@@ -145,16 +145,14 @@ Tests will confirm the JSON list in the result is the correct column sums.
 
 ### Open
 
-1.  Can either an AF or an ADF accept a 300MB executable, either uploaded
-	as part of the function definition, or imported from a NuGet repository?
-2.  Does an Azure runtime with .Net installed restrict
+1.  Does an Azure runtime with .Net installed restrict
 	the choice of scripting language?
-3.  A Superval calculation takes as input a ZIP of <500MB. The Orchestration
+2.  A Superval calculation takes as input a ZIP of <500MB. The Orchestration
 	process must start Worker processes with read access to the ZIP contents.
 	How should this be done? Azure File or Azure Blob?
-4.	Does invoking the ADF require two steps: (a) upload the input file,
+3.	Does invoking the ADF require two steps: (a) upload the input file,
 	(b) start the ADF? Or can the upload invoke the ADF?
-5.  When the ADF completes can the Orchestrator process delete the input file,
+4.  When the ADF completes can the Orchestrator process delete the input file,
 	or must this be initiated outside the Azure cloud?
 
 ### Answered or decided
@@ -162,4 +160,30 @@ Tests will confirm the JSON list in the result is the correct column sums.
 1.  Can either APL64 or Dyalog APL export an executable that depends on
 	.Net in its execution environment?
 	**No** (as of 2025). Dyalog is considering this for a future release.
+
+2.  Can either an AF or an ADF accept a 300MB executable, either uploaded
+	as part of the function definition, or imported from a NuGet repository?
+	**Yes** (applies to both AF and ADF; Durable Functions is an extension
+	running on the same hosting infrastructure). Max deployment package is
+	1 GB. Temp storage limits by plan:
+
+	| Plan                | Temp Storage | Scales to Zero | 300MB viable? |
+	|---------------------|--------------|----------------|---------------|
+	| Consumption         | 500 MB       | Yes            | Tight         |
+	| Flex Consumption    | 800 MB       | Yes            | Yes           |
+	| Consumption (Linux) | 1.5 GB       | Yes            | Yes           |
+	| Premium             | 21-140 GB    | No             | Yes           |
+	| Dedicated           | 11-140 GB    | No             | Yes           |
+
+	**Recommendation**: Use Flex Consumption plan. It has sufficient temp
+	storage (800 MB) for a 300 MB package, scales to zero when idle, and
+	uses pay-per-execution billing. Premium and Dedicated plans incur costs
+	even when idle. Deploy via custom handler.
+
+	Sources (retrieved 2026-02-01):
+	- https://learn.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package
+	- https://learn.microsoft.com/en-us/azure/azure-functions/functions-custom-handlers
+	- https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale
+	- https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan
+	- https://azure.microsoft.com/en-us/pricing/details/functions/
 
