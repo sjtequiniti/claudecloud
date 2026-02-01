@@ -94,6 +94,7 @@ Use linter on all scripts.
     - progress the implementation until the tests succeed.
     - NEVER tweak a test to "fit" the behaviour, unless the test is demonstrably broken.
 - Maintain progress in plans/TODO.md
+- **Session wrap-up**: When finishing or when user says "let's wrap up", update plans/TODO.md with session notes (what was done, next steps, open questions)
 - NEVER EVER CHANGE THE DEFAULT BRANCH ON GIT OR GITHUB!
 - When creating PRs or commits, DO NOT mention Claude, Anthropic, or AI assistance in the message
 - NEVER use `--no-verify` when committing! Always let pre-commit hooks run and fix any issues they find
