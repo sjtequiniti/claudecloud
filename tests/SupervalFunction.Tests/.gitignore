@@ -1,16 +1,5 @@
-# Claude Code
-.claude
-
-# Project temp directory
-tmp/
-
-# Logs
-*.log
-
-# Environment files
-.env
-.env.*
-!.env.example
+# Azure Functions
+local.settings.json
 
 # Build results
 [Bb]in/
@@ -30,9 +19,6 @@ tmp/
 # JetBrains Rider
 .idea/
 *.sln.iml
-
-# Azure Functions
-local.settings.json
 
 # Test results
 [Tt]est[Rr]esult*/

@@ -1,5 +1,20 @@
 # TODO
 
+## Session notes (2026-02-02, evening)
+
+### Completed this session
+- Created `azure-function-initial` branch
+- Initialized Azure Function project: `src/SupervalFunction`
+  - .NET 8 Isolated worker model
+  - HTTP trigger function (`HelloWorld`)
+- Tested locally: function responds correctly to GET requests
+
+### Next steps
+- Add unit tests for the function
+- Prepare for APL64 CPC integration
+
+---
+
 ## Session notes (2026-02-02, afternoon)
 
 ### Completed this session
