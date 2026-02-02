@@ -1,6 +1,8 @@
 Claude Cloud
 ============
 
+![APL in the Cloud](img/aplcloud.png)
+
 Deploy an APL64-powered Azure Durable Function with help from Claude Code.
 
 
