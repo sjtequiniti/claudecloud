@@ -1,5 +1,31 @@
 # TODO
 
+## Session notes (2026-02-02)
+
+### Completed this session
+- Selected C# as the implementation language (APL64 produces .NET assemblies, most APL64 users use C#)
+- Read APL2000's CPC documentation - APL64 CPC is a NuGet package, integrates natively with C#
+- No custom handler needed: APL functions become .NET methods called directly from C#
+
+### Decisions made
+- **Language**: C# (not Node.js) - native .NET integration with APL64 CPC
+- **CPC deployment**: Start with fat CPC (~300 MB, includes .NET runtime), explore thin CPC later
+- **Azure Functions model**: .NET 8.0 Isolated worker (per APL2000 example)
+
+### Next steps
+- Begin Part 1: Create a basic C# Azure Function
+- Follow APL2000's example as a guide
+- Verify .NET version compatibility with APL64 CPC
+
+### Answered questions
+- Can APL64/Dyalog target Linux? **Yes** (both can target Linux, enabling 1.5 GB temp storage option)
+
+### Open questions to investigate
+- Which .NET version does APL64 require? (affects thin CPC feasibility)
+- Does Flex Consumption support Durable Functions?
+
+---
+
 ## Session notes (2026-02-01)
 
 ### Completed this session
