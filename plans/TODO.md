@@ -1,6 +1,21 @@
 # TODO
 
-## Session notes (2026-02-02)
+## Session notes (2026-02-02, afternoon)
+
+### Completed this session
+- Created `scripts/install-dotnet8.ps1` for reproducible local setup
+- Installed .NET 8.0.417 SDK via winget
+- Installation path: `C:\Program Files\dotnet\dotnet.exe`
+
+### Next steps
+- Restart terminal for PATH to take effect
+- Verify `dotnet --version` works
+- Install Azure Functions Core Tools
+- Create initial Azure Function project
+
+---
+
+## Session notes (2026-02-02, morning)
 
 ### Completed this session
 - Selected C# as the implementation language (APL64 produces .NET assemblies, most APL64 users use C#)
@@ -11,11 +26,6 @@
 - **Language**: C# (not Node.js) - native .NET integration with APL64 CPC
 - **CPC deployment**: Start with fat CPC (~300 MB, includes .NET runtime), explore thin CPC later
 - **Azure Functions model**: .NET 8.0 Isolated worker (per APL2000 example)
-
-### Next steps
-- Begin Part 1: Create a basic C# Azure Function
-- Follow APL2000's example as a guide
-- Verify .NET version compatibility with APL64 CPC
 
 ### Answered questions
 - Can APL64/Dyalog target Linux? **Yes** (both can target Linux, enabling 1.5 GB temp storage option)
