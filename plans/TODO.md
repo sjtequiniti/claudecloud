@@ -5,12 +5,12 @@
 ### Completed this session
 - Created `scripts/install-dotnet8.ps1` for reproducible local setup
 - Installed .NET 8.0.417 SDK via winget
-- Installation path: `C:\Program Files\dotnet\dotnet.exe`
+- Created `scripts/install-azure-tools.ps1` and `.sh` for Azure Functions Core Tools
+- Installed Azure Functions Core Tools v4.6.0 via winget
+- Installation path: `C:\Program Files\Microsoft\Azure Functions Core Tools\func.exe`
 
 ### Next steps
 - Restart terminal for PATH to take effect
-- Verify `dotnet --version` works
-- Install Azure Functions Core Tools
 - Create initial Azure Function project
 
 ---
