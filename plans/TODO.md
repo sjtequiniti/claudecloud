@@ -1,41 +1,32 @@
 # TODO
 
-## Session notes (2026-02-02, evening)
+## Session notes (2026-02-02, afternoon)
 
 ### Completed this session
 - Created `azure-function-initial` branch
 - Initialized Azure Function project: `src/SupervalFunction`
   - .NET 8 Isolated worker model
-  - HTTP trigger function (`HelloWorld`)
-- Tested locally: function responds correctly to GET requests
+  - HTTP trigger function (`GetRoot`)
+- Added test project: `tests/SupervalFunction.Tests`
+  - 8 unit tests for GetRoot function (TDD approach)
+- GetRoot function calculates square/cube roots via HTTP GET
+- Cleaned up .gitignore files (removed Node.js entries, now C#-focused)
+- Tested locally: function responds correctly
 
 ### Next steps
-- Add unit tests for the function
-- Prepare for APL64 CPC integration
-
----
-
-## Session notes (2026-02-02, afternoon)
-
-### Completed this session
-- Created `scripts/install-dotnet8.ps1` for reproducible local setup
-- Installed .NET 8.0.417 SDK via winget
-- Created `scripts/install-azure-tools.ps1` and `.sh` for Azure Functions Core Tools
-- Installed Azure Functions Core Tools v4.6.0 via winget
-- Installation path: `C:\Program Files\Microsoft\Azure Functions Core Tools\func.exe`
-
-### Next steps
-- Restart terminal for PATH to take effect
-- Create initial Azure Function project
+- Integrate APL64 CPC for root calculation
 
 ---
 
 ## Session notes (2026-02-02, morning)
 
 ### Completed this session
-- Selected C# as the implementation language (APL64 produces .NET assemblies, most APL64 users use C#)
+- Created `scripts/install-dotnet8.ps1` for reproducible local setup
+- Installed .NET 8.0.417 SDK via winget
+- Created `scripts/install-azure-tools.ps1` and `.sh` for Azure Functions Core Tools
+- Installed Azure Functions Core Tools v4.6.0 via winget
+- Selected C# as the implementation language (APL64 produces .NET assemblies)
 - Read APL2000's CPC documentation - APL64 CPC is a NuGet package, integrates natively with C#
-- No custom handler needed: APL functions become .NET methods called directly from C#
 
 ### Decisions made
 - **Language**: C# (not Node.js) - native .NET integration with APL64 CPC
@@ -78,9 +69,9 @@
 
 ## Part 1: Azure Function
 
-- [ ] Create an Azure Function using a scripting language
-- [ ] Replace the script with an APL64 executable
-- [ ] Replace the script with a Dyalog APL executable
+- [x] Create an Azure Function (C# .NET 8 Isolated)
+- [ ] Replace C# root calculation with APL64 CPC
+- [ ] Replace C# root calculation with Dyalog APL
 
 ## Part 2: Azure Durable Function
 
