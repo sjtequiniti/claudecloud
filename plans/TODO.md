@@ -1,5 +1,37 @@
 # TODO
 
+## Session notes (2026-02-03)
+
+### APL64 2025.0.9 Update (September 2025)
+
+Reviewed `docs/APL64_UPDATE_SEPTEMBER_2025.pdf`. Key finding:
+
+- **Thin CPC now available**: New WRE output type "Single Exe File Excluding .Net Runtime"
+  - Produces a single exe with APL64 runtime but without .NET runtime
+  - Target must have .NET runtime installed (Azure Functions already do)
+  - Significantly smaller than fat CPC (~300 MB)
+
+This makes thin CPC viable for Azure deployment.
+
+### Open question: Which .NET version does APL64 CPC require?
+
+The PDF screenshots show filepaths containing `\net9.0\`, suggesting .NET 9. Need to confirm with APL2000.
+
+**Azure Functions .NET support** (isolated worker model):
+| Version | Status | End-of-Support |
+|---------|--------|----------------|
+| .NET 10 | GA | November 2028 |
+| .NET 9 | GA | November 2026 |
+| .NET 8 | GA | November 2026 |
+
+If .NET 9 is required, upgrading from our current .NET 8 is straightforward.
+
+Sources:
+- https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages
+- https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions
+
+---
+
 ## Session notes (2026-02-02, afternoon)
 
 ### Completed this session
@@ -30,14 +62,13 @@
 
 ### Decisions made
 - **Language**: C# (not Node.js) - native .NET integration with APL64 CPC
-- **CPC deployment**: Start with fat CPC (~300 MB, includes .NET runtime), explore thin CPC later
+- **CPC deployment**: Use thin CPC (excludes .NET runtime, Azure provides it)
 - **Azure Functions model**: .NET 8.0 Isolated worker (per APL2000 example)
 
 ### Answered questions
 - Can APL64/Dyalog target Linux? **Yes** (both can target Linux, enabling 1.5 GB temp storage option)
 
 ### Open questions to investigate
-- Which .NET version does APL64 require? (affects thin CPC feasibility)
 - Does Flex Consumption support Durable Functions?
 
 ---
