@@ -2,6 +2,13 @@
 
 ## Session notes (2026-02-03)
 
+### Completed this session
+- Reviewed APL64 2025.0.9 update PDF from APL2000
+- Discovered thin CPC export is now available (excludes .NET runtime)
+- Updated deployment decision: use thin CPC instead of fat CPC
+- Researched Azure Functions .NET 9 support (confirmed GA)
+- Identified open question: APL64 may require .NET 9 (per PDF screenshots)
+
 ### APL64 2025.0.9 Update (September 2025)
 
 Reviewed `docs/APL64_UPDATE_SEPTEMBER_2025.pdf`. Key finding:
@@ -29,6 +36,10 @@ If .NET 9 is required, upgrading from our current .NET 8 is straightforward.
 Sources:
 - https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages
 - https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions
+
+### Next steps
+- Confirm .NET version requirement with APL2000
+- Integrate APL64 thin CPC for root calculation (may require .NET 9 upgrade)
 
 ---
 
