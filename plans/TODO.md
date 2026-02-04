@@ -2,34 +2,32 @@
 
 ## Session notes (2026-02-04)
 
-### Received fat CPC from APL2000
+### Completed this session
 
-Received `cpcroots/` containing:
-- `APLNext_LLC.CPCRoots.0.0.0.9.nupkg` - Fat CPC NuGet package (1.8 MB compressed, 5.8 MB uncompressed)
-- `CPCRoots.dll` - Compiled APL workspace (28 KB)
-- `CPC Parameters.png` - Screenshot of CPC creation dialog
-- `CPCRoots.Info.log` - Build log
+**APL64 CPC integration complete:**
+- Received fat CPC package from APL2000 (`cpcroots/`)
+- Confirmed .NET 9 requirement (SDK 9.0.308, target `net9.0`)
+- Installed .NET 9.0.310 SDK locally
+- Upgraded Azure Function and test projects to .NET 9
+- Renamed `install-dotnet8.ps1` to `install-dotnet9.ps1`
+- Added `cpcroots/` to repo with NuGet package
+- Created `NuGet.config` for local package source
+- Integrated `RootsClass` into `GetRoot.cs` (replaces `Math.Sqrt`/`Math.Cbrt`)
+- All 8 tests pass with APL implementation
 
-**Confirmed: .NET 9 required**
-- Built with .NET 9.0 SDK 9.0.308
-- All DLLs target `lib/net9.0/`
-- Must upgrade Azure Function from .NET 8 to .NET 9
+**CPC API:**
+- `RootsClass.SquareRootCalculation(double)` returns `(double result, bool hasError, string errMsg)`
+- `RootsClass.CubeRootCalculation(double)` returns `(double result, bool hasError, string errMsg)`
 
-**API exposed by RootsClass:**
-- `SquareRootCalculation(double)` - returns square root
-- `CubeRootCalculation(double)` - returns cube root
-
-**Fat CPC contents (24 files):**
-- `CPCRoots.dll` (28 KB) - our APL code
+**Fat CPC contents (5.8 MB uncompressed):**
+- `CPCRoots.dll` (28 KB) - APL workspace
 - `APLNow.Core.dll` (4.8 MB) - APL interpreter
-- Support DLLs: Common, CpcTools, CseOptions, WreTools, ScriptEngine, etc.
+- Support DLLs for data, files, XML, etc.
 
 ### Next steps
-1. Upgrade Azure Function to .NET 9
-2. Add local NuGet source for `cpcroots/`
-3. Reference `APLNext_LLC.CPCRoots` package
-4. Replace C# root calculation with calls to `RootsClass`
-5. Run tests to verify integration
+- Deploy Azure Function to Azure
+- Test on Azure platform
+- Dyalog APL integration (Part 1 remaining)
 
 ---
 
