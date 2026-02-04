@@ -1,9 +1,9 @@
-# Install .NET 8 SDK using winget
-# Run as: powershell -ExecutionPolicy Bypass -File scripts\install-dotnet8.ps1
+# Install .NET 9 SDK using winget
+# Run as: powershell -ExecutionPolicy Bypass -File scripts\install-dotnet9.ps1
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "Installing .NET 8 SDK..." -ForegroundColor Cyan
+Write-Host "Installing .NET 9 SDK..." -ForegroundColor Cyan
 
 # Check winget is available
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
@@ -11,8 +11,8 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-# Install .NET 8 SDK
-winget install Microsoft.DotNet.SDK.8 --accept-source-agreements --accept-package-agreements
+# Install .NET 9 SDK
+winget install Microsoft.DotNet.SDK.9 --accept-source-agreements --accept-package-agreements
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "ERROR: Installation failed with exit code $LASTEXITCODE" -ForegroundColor Red
@@ -27,7 +27,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";
 # Verify dotnet is available
 if (Get-Command dotnet -ErrorAction SilentlyContinue) {
     dotnet --version
-    Write-Host "`n.NET 8 SDK installed successfully." -ForegroundColor Green
+    Write-Host "`n.NET 9 SDK installed successfully." -ForegroundColor Green
 } else {
     Write-Host "WARNING: dotnet not found in PATH. You may need to restart your terminal." -ForegroundColor Yellow
 }

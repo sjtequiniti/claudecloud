@@ -1,5 +1,38 @@
 # TODO
 
+## Session notes (2026-02-04)
+
+### Received fat CPC from APL2000
+
+Received `cpcroots/` containing:
+- `APLNext_LLC.CPCRoots.0.0.0.9.nupkg` - Fat CPC NuGet package (1.8 MB compressed, 5.8 MB uncompressed)
+- `CPCRoots.dll` - Compiled APL workspace (28 KB)
+- `CPC Parameters.png` - Screenshot of CPC creation dialog
+- `CPCRoots.Info.log` - Build log
+
+**Confirmed: .NET 9 required**
+- Built with .NET 9.0 SDK 9.0.308
+- All DLLs target `lib/net9.0/`
+- Must upgrade Azure Function from .NET 8 to .NET 9
+
+**API exposed by RootsClass:**
+- `SquareRootCalculation(double)` - returns square root
+- `CubeRootCalculation(double)` - returns cube root
+
+**Fat CPC contents (24 files):**
+- `CPCRoots.dll` (28 KB) - our APL code
+- `APLNow.Core.dll` (4.8 MB) - APL interpreter
+- Support DLLs: Common, CpcTools, CseOptions, WreTools, ScriptEngine, etc.
+
+### Next steps
+1. Upgrade Azure Function to .NET 9
+2. Add local NuGet source for `cpcroots/`
+3. Reference `APLNext_LLC.CPCRoots` package
+4. Replace C# root calculation with calls to `RootsClass`
+5. Run tests to verify integration
+
+---
+
 ## Session notes (2026-02-03)
 
 ### Completed this session
@@ -20,9 +53,9 @@ Reviewed `docs/APL64_UPDATE_SEPTEMBER_2025.pdf`. Key finding:
 
 This makes thin CPC viable for Azure deployment.
 
-### Open question: Which .NET version does APL64 CPC require?
+### Answered: .NET 9 is required
 
-The PDF screenshots show filepaths containing `\net9.0\`, suggesting .NET 9. Need to confirm with APL2000.
+Confirmed via received CPC package. Azure Functions supports .NET 9 (GA until November 2026).
 
 **Azure Functions .NET support** (isolated worker model):
 | Version | Status | End-of-Support |
@@ -31,15 +64,9 @@ The PDF screenshots show filepaths containing `\net9.0\`, suggesting .NET 9. Nee
 | .NET 9 | GA | November 2026 |
 | .NET 8 | GA | November 2026 |
 
-If .NET 9 is required, upgrading from our current .NET 8 is straightforward.
-
 Sources:
 - https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages
 - https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions
-
-### Next steps
-- Confirm .NET version requirement with APL2000
-- Integrate APL64 thin CPC for root calculation (may require .NET 9 upgrade)
 
 ---
 
@@ -112,7 +139,8 @@ Sources:
 ## Part 1: Azure Function
 
 - [x] Create an Azure Function (C# .NET 8 Isolated)
-- [ ] Replace C# root calculation with APL64 CPC
+- [x] Upgrade to .NET 9 (required by APL64 CPC)
+- [ ] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
 - [ ] Replace C# root calculation with Dyalog APL
 
 ## Part 2: Azure Durable Function
