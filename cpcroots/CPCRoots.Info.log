@@ -1,0 +1,31 @@
+Welcome to .NET 9.0!
+---------------------
+SDK Version: 9.0.308
+Telemetry
+---------
+The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate, run 'dotnet dev-certs https --trust'
+Learn about HTTPS: https://aka.ms/dotnet-https
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+  Determining projects to restore...
+  Restored E:\SuperVal\APL64 NuGet Packages\CPCRoots.csproj (in 19.04 sec).
+E:\SuperVal\APL64 NuGet Packages\CPCRoots.cs(32,54): warning CS1591: Missing XML comment for publicly visible type or member 'RootsClass.CubeRootCalculation(double)' [E:\SuperVal\APL64 NuGet Packages\CPCRoots.csproj]
+E:\SuperVal\APL64 NuGet Packages\CPCRoots.cs(48,55): warning CS1591: Missing XML comment for publicly visible type or member 'RootsClass.SquareRootCalculation(double)' [E:\SuperVal\APL64 NuGet Packages\CPCRoots.csproj]
+  CPCRoots -> E:\SuperVal\APL64 NuGet Packages\bin\x64\Release\net9.0\CPCRoots.dll
+  The package APLNext_LLC.CPCRoots.0.0.0.9 is missing a readme. Go to https://aka.ms/nuget/authoring-best-practices/readme to learn why package readmes are important.
+  Successfully created package 'E:\SuperVal\APL64 NuGet Packages\bin\x64\Release\APLNext_LLC.CPCRoots.0.0.0.9.nupkg'.
+Build succeeded.
+E:\SuperVal\APL64 NuGet Packages\CPCRoots.cs(32,54): warning CS1591: Missing XML comment for publicly visible type or member 'RootsClass.CubeRootCalculation(double)' [E:\SuperVal\APL64 NuGet Packages\CPCRoots.csproj]
+E:\SuperVal\APL64 NuGet Packages\CPCRoots.cs(48,55): warning CS1591: Missing XML comment for publicly visible type or member 'RootsClass.SquareRootCalculation(double)' [E:\SuperVal\APL64 NuGet Packages\CPCRoots.csproj]
+    2 Warning(s)
+    0 Error(s)
+Time Elapsed 00:00:23.73
