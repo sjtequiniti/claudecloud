@@ -1,3 +1,4 @@
+using CPCRoots;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
@@ -48,9 +49,15 @@ public class GetRoot
             return new BadRequestObjectResult("Number must be non-negative.");
         }
 
-        double result = type == "square"
-            ? Math.Sqrt(number)
-            : Math.Cbrt(number);
+        using var roots = new RootsClass();
+        var (result, hasError, errMsg) = type == "square"
+            ? roots.SquareRootCalculation(number)
+            : roots.CubeRootCalculation(number);
+
+        if (hasError)
+        {
+            return new BadRequestObjectResult($"APL error: {errMsg}");
+        }
 
         return new OkObjectResult(result.ToString());
     }

@@ -140,7 +140,7 @@ Sources:
 
 - [x] Create an Azure Function (C# .NET 8 Isolated)
 - [x] Upgrade to .NET 9 (required by APL64 CPC)
-- [ ] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
+- [x] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
 - [ ] Replace C# root calculation with Dyalog APL
 
 ## Part 2: Azure Durable Function

@@ -1,3 +1,11 @@
+*.sublime-*
+
+# API keys &c.
+**/secret/*
+
+# discards
+scrap/
+
 # Claude Code
 .claude
 
