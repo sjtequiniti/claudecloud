@@ -41,6 +41,8 @@ tmp/
 
 # Azure Functions
 local.settings.json
+publish/
+deploy.zip
 
 # Test results
 [Tt]est[Rr]esult*/

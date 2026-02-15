@@ -1,5 +1,34 @@
 # TODO
 
+## Session notes (2026-02-15)
+
+### Completed this session
+
+**Azure deployment complete:**
+- Installed Azure CLI v2.83.0 via winget
+- Logged in to Azure using device code authentication (MFA required)
+- Created Azure resources in East US region:
+  - Resource group: `superval-rg`
+  - Storage account: `supervalstore`
+  - Function App: `superval-func` (Consumption plan, .NET 9 Isolated)
+- Built and deployed function via zip deployment
+- Tested successfully on Azure
+
+**Live endpoint:**
+- URL: `https://superval-func.azurewebsites.net/api/GetRoot`
+- Square root: `?type=square&number=16` returns `4`
+- Cube root: `?type=cube&number=27` returns `3`
+
+**Azure subscription:**
+- Account: stephen.equiniti@gmail.com
+- Subscription: Azure subscription 1 (bf90fc63-7054-4b5b-bd28-1dfbb9443eb4)
+
+### Next steps
+- Dyalog APL integration (Part 1 remaining)
+- Part 2: Durable Functions
+
+---
+
 ## Session notes (2026-02-04)
 
 ### Completed this session
@@ -139,6 +168,7 @@ Sources:
 - [x] Create an Azure Function (C# .NET 8 Isolated)
 - [x] Upgrade to .NET 9 (required by APL64 CPC)
 - [x] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
+- [x] Deploy to Azure (superval-func.azurewebsites.net)
 - [ ] Replace C# root calculation with Dyalog APL
 
 ## Part 2: Azure Durable Function
