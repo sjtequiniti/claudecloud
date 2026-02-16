@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## CRITICAL: Session protocol
+
+These commands govern every session. Execute them before any other work.
+
+- **Session start**: Read CLAUDE.md, README.md, and plans/TODO.md to determine current status. Say "Ready to resume" and propose the next action. Do this BEFORE responding to the user's first message.
+- **"Carry on"**: Resume whatever was interrupted, or begin work on the next action. If unsure what to do, ask.
+- **"Let's wrap up"** (session end):
+    - Update plans/TODO.md with current status: what was done, next steps, open questions, anything needed to continue work.
+    - Copy the terminal conversation to `logs/conversation-{timestamp}.md`
+
 ## CRITICAL: Test integrity rules
 
 **NEVER MODIFY TESTS TO MAKE THEM PASS - unless tests are provably broken.**
@@ -95,11 +105,6 @@ Use linter on all scripts.
     - progress the implementation until the tests succeed.
     - NEVER tweak a test to "fit" the behaviour, unless the test is demonstrably broken.
 - Maintain progress in plans/TODO.md
-- **Session start**: Read CLAUDE.md, README.md, and plans/TODO.md to determine current status. Say "Ready to resume" and propose the next action.
-- **"Carry on"**: Resume whatever was interrupted, or begin work on the next action. If unsure what to do, ask.
-- **"Let's wrap up"** (session end):
-    - Update plans/TODO.md with current status: what was done, next steps, open questions, anything needed to continue work.
-    - Copy the terminal conversation to `logs/conversation-{timestamp}.md`
 - NEVER EVER CHANGE THE DEFAULT BRANCH ON GIT OR GITHUB!
 - When creating PRs or commits, DO NOT mention Claude, Anthropic, or AI assistance in the message
 - NEVER use `--no-verify` when committing! Always let pre-commit hooks run and fix any issues they find
