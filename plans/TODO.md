@@ -2,6 +2,21 @@
 
 ## Session notes (2026-02-16)
 
+### Completed this session
+
+- Revised project plan: C# scripting language, Dyalog APL deferred to Part 3
+- Updated README.md, CLAUDE.md (session commands), and TODO.md
+- Removed GetRoot function and CPCRoots package
+- Inspected AddNumbers CPC API via reflection
+- Implemented ColumnSums Azure Function (POST CSV, returns JSON column sums)
+- All 7 tests pass on branch `addnumbers-cpc-integration`
+
+### Next steps
+
+- Deploy ColumnSums to Azure and test live
+- Merge `addnumbers-cpc-integration` branch after successful deployment
+- Begin Part 2: Azure Durable Function
+
 ### Plan revision
 
 **Scripting language**: C# confirmed (was already in use; now explicit in README).
