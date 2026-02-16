@@ -1,5 +1,31 @@
 # TODO
 
+## Session notes (2026-02-16, evening)
+
+### Completed this session
+
+- Promoted session protocol to top-level CRITICAL section in CLAUDE.md
+- Deployed ColumnSums Azure Function to Azure (build, zip, deploy)
+- Tested live endpoint successfully:
+  - Sample CSV (34x8): correct column sums returned
+  - Empty body: returns "Missing CSV payload."
+  - Simple 2-row CSV: correct sums `[5,7,9]`
+- Merged `addnumbers-cpc-integration` branch into `main` (fast-forward)
+- Pushed to origin
+
+### Live endpoint
+
+```
+POST https://superval-func.azurewebsites.net/api/ColumnSums
+```
+
+### Next steps
+
+- Part 1 complete. Begin Part 2: Azure Durable Function
+- Delete `addnumbers-cpc-integration` branch (now merged)
+
+---
+
 ## Session notes (2026-02-16)
 
 ### Completed this session
@@ -215,10 +241,10 @@ Sources:
 - [x] Upgrade to .NET 9 (required by APL64 CPC)
 - [x] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
 - [x] Deploy to Azure (superval-func.azurewebsites.net)
-- [ ] Replace with AddNumbers CPC (`EK.AddNumbersinFile`):
-  - [ ] Write tests for CSV POST endpoint returning JSON column sums
-  - [ ] Implement new AF: accept POST CSV, write to D:/home, call CPC, return JSON
-  - [ ] Deploy to Azure and test
+- [x] Replace with AddNumbers CPC (`EK.AddNumbersinFile`):
+  - [x] Write tests for CSV POST endpoint returning JSON column sums
+  - [x] Implement new AF: accept POST CSV, write to D:/home, call CPC, return JSON
+  - [x] Deploy to Azure and test
 
 ## Part 2: Azure Durable Function
 
