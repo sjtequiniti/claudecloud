@@ -1,5 +1,28 @@
 # TODO
 
+## Session notes (2026-02-16)
+
+### Plan revision
+
+**Scripting language**: C# confirmed (was already in use; now explicit in README).
+
+**Dyalog APL deferred** to Part 3. Parts 1 and 2 use APL64 CPCs only.
+
+**Part 1 revised roadmap**:
+1. Simple Azure Function in C# (square/cube roots) -- done, deployed.
+2. Replace with AddNumbers CPC (`EK.AddNumbersinFile` NuGet package):
+   - AF accepts POST with CSV payload
+   - Writes CSV to local file system (`D:/home`)
+   - Calls `AddNumbers.AddNumbersinFile(filePath)` -- takes a file path
+   - Returns column sums as JSON list
+
+**AddNumbers CPC** (`cpc/addnumbers/v1/`):
+- Class: `AddNumbers`, method: `AddNumbersinFile(string filePath)`
+- NuGet: `EK.AddNumbersinFile.0.0.0.1`
+- Sample CSV: `cpc/addnumbers/v1/numbers.csv` (34 rows x 8 columns)
+
+---
+
 ## Session notes (2026-02-15)
 
 ### Completed this session
@@ -165,14 +188,21 @@ Sources:
 
 ## Part 1: Azure Function
 
-- [x] Create an Azure Function (C# .NET 8 Isolated)
+- [x] Create an Azure Function in C# (square/cube roots)
 - [x] Upgrade to .NET 9 (required by APL64 CPC)
 - [x] Integrate APL64 CPC (`APLNext_LLC.CPCRoots` package)
 - [x] Deploy to Azure (superval-func.azurewebsites.net)
-- [ ] Replace C# root calculation with Dyalog APL
+- [ ] Replace with AddNumbers CPC (`EK.AddNumbersinFile`):
+  - [ ] Write tests for CSV POST endpoint returning JSON column sums
+  - [ ] Implement new AF: accept POST CSV, write to D:/home, call CPC, return JSON
+  - [ ] Deploy to Azure and test
 
 ## Part 2: Azure Durable Function
 
-- [ ] Create an Azure Durable Function using a scripting language
-- [ ] Replace the script with an APL64 executable
-- [ ] Replace the script with a Dyalog APL executable
+- [ ] Create an Azure Durable Function in C#
+- [ ] Replace with an APL64 CPC executable
+
+## Part 3: Dyalog APL integration
+
+- [ ] Replace APL64 CPC with Dyalog APL executable in AF
+- [ ] Replace APL64 CPC with Dyalog APL executable in ADF
