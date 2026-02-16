@@ -17,9 +17,17 @@
    - Returns column sums as JSON list
 
 **AddNumbers CPC** (`cpc/addnumbers/v1/`):
-- Class: `AddNumbers`, method: `AddNumbersinFile(string filePath)`
+- Namespace: `AddNumbersinFile`, class: `AddNumbers`, implements `IDisposable`
+- Method: `string AddNumbersinFile(string file)` -- takes file path, returns string
 - NuGet: `EK.AddNumbersinFile.0.0.0.1`
 - Sample CSV: `cpc/addnumbers/v1/numbers.csv` (34 rows x 8 columns)
+
+**CPC CSV requirements** (determined empirically):
+- CRLF line endings required (LF-only silently returns `[0]`)
+- Minimum 2 rows required (single row silently returns `[0]`)
+- Any number of columns works (tested 2, 3, 4, 8)
+- Integer and decimal formats both work
+- Return format: nested JSON array `[[sum1,sum2,...]]` (outer array must be unwrapped)
 
 ---
 
